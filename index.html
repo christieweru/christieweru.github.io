@@ -14,7 +14,6 @@
       max-width: 900px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 220px; gap: 3rem; align-items: center;
     }
-
     .hero-eyebrow {
       font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 1.25rem;
@@ -22,7 +21,6 @@
     }
     .hero-eyebrow::before { content:''; display:inline-block; width:24px; height:1px; background:var(--accent); }
 
-    /* Scribble title block */
     .hero-title-wrap { position: relative; display: inline-block; margin-bottom: 1.5rem; }
     .hero-title {
       font-family: 'DM Serif Display', serif;
@@ -71,7 +69,6 @@
     }
     .hero-cta-ghost:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    /* Photo circle */
     .hero-photo {
       width: 200px; height: 200px; border-radius: 50%;
       overflow: hidden;
@@ -88,7 +85,6 @@
       letter-spacing: 0.1em; text-align: center; text-transform: uppercase;
     }
 
-    /* Stats */
     .stats-wrap { max-width: 900px; margin: 0 auto; padding: 0 2.5rem 3rem; }
     .stats-row {
       display: flex; border: 1px solid var(--border2); border-radius: var(--radius); overflow: hidden;
@@ -98,13 +94,11 @@
     .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--accent); line-height: 1; }
     .stat-label { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.06em; margin-top: 0.25rem; }
 
-    /* Skills */
     .skills-section { padding: 0 2.5rem 3rem; max-width: 900px; margin: 0 auto; }
     .skill-group { margin-bottom: 1.25rem; }
     .skill-group-label { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
     .skill-group-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
-    /* Work tiles */
     .work-wrap { padding: 0 2.5rem; max-width: 900px; margin: 0 auto 3rem; }
     .work-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
     .work-tile {
@@ -119,7 +113,6 @@
     .work-tile-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
     .work-tile-arrow { font-size: 1rem; color: var(--accent); margin-top: auto; }
 
-    /* About extras */
     .about-wrap { padding: 0 2.5rem 3rem; max-width: 900px; margin: 0 auto; }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .about-block-label {
@@ -161,14 +154,13 @@
   <!-- HERO -->
   <div class="hero reveal">
     <div>
-      <p class="hero-eyebrow">Portfolio — 2025</p>
+      <p class="hero-eyebrow">Portfolio &mdash; 2025</p>
 
       <div class="hero-title-wrap">
         <h1 class="hero-title">
           Hi, I'm<br>
           <em>Christie Weru.</em>
         </h1>
-        <!-- Hand-drawn scribble under the name -->
         <svg class="scribble" viewBox="0 0 400 18" preserveAspectRatio="none" aria-hidden="true">
           <path d="M2 12 C 35 4, 70 16, 105 9 C 140 2, 175 15, 210 9 C 245 3, 278 14, 312 8 C 340 3, 368 13, 398 9"/>
         </svg>
@@ -176,12 +168,11 @@
 
       <p class="hero-body">Junior at UC Irvine studying Game Design & Human-Computer Interaction. I'm passionate about UX/UI design and software engineering — making technology more accessible and intuitive for everyone.</p>
       <div class="hero-ctas">
-        <a href="ux.html" class="hero-cta">View my work →</a>
+        <a href="ux.html" class="hero-cta">View my work &rarr;</a>
         <a href="mailto:christieweru07@gmail.com" class="hero-cta-ghost">Say hello</a>
       </div>
     </div>
 
-    <!-- PHOTO — swap images/christie.jpg for your real photo path -->
     <div class="hero-photo">
       <img
         src="images/christie-digi.jpg"
@@ -193,7 +184,7 @@
           <circle cx="18" cy="12" r="7" stroke="#6b3df0" stroke-width="1.5"/>
           <path d="M2 34c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#6b3df0" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
-        <span>Add your photo:<br>images/christie.jpg</span>
+        <span>Add your photo:<br>images/christie-digi.jpg</span>
       </div>
     </div>
   </div>
@@ -208,7 +199,7 @@
     </div>
   </div>
 
-  <div class="section-divider">✦</div>
+  <div class="section-divider">&#10022;</div>
 
   <!-- SKILLS -->
   <section class="skills-section reveal">
@@ -244,7 +235,7 @@
     </div>
   </section>
 
-  <div class="section-divider">✦</div>
+  <div class="section-divider">&#10022;</div>
 
   <!-- RECENT WORK -->
   <section style="max-width:900px;margin:0 auto;padding:3rem 0;">
@@ -252,28 +243,28 @@
     <div class="work-wrap" style="padding-bottom:0">
       <div class="work-grid reveal">
         <a class="work-tile" href="ux.html">
-          <span class="work-tile-cat">UX Design</span>
-          <h2 class="work-tile-title">Integration System</h2>
-          <p class="work-tile-desc">Interactive onboarding for UCI Rocket Project Liquids — built in Figma</p>
-          <span class="work-tile-arrow">→</span>
+          <span class="work-tile-cat">UX Design + Web Dev</span>
+          <h2 class="work-tile-title">BLOC</h2>
+          <p class="work-tile-desc">Community platform for civic engagement &mdash; lead web developer &amp; UX researcher</p>
+          <span class="work-tile-arrow">&rarr;</span>
         </a>
         <a class="work-tile" href="game-dev.html">
           <span class="work-tile-cat">Game Development</span>
           <h2 class="work-tile-title">Convalescence</h2>
-          <p class="work-tile-desc">2D action-RPG — lead programmer, UI systems & cutscenes in Unity</p>
-          <span class="work-tile-arrow">→</span>
+          <p class="work-tile-desc">2D action-RPG &mdash; lead programmer, UI systems &amp; cutscenes in Unity</p>
+          <span class="work-tile-arrow">&rarr;</span>
         </a>
-        <a class="work-tile" href="ux.html">
-          <span class="work-tile-cat">UX Design</span>
-          <h2 class="work-tile-title">Kidz Docs</h2>
-          <p class="work-tile-desc">Google Docs redesigned for children ≤12 — UX lead & lo-fi prototyping</p>
-          <span class="work-tile-arrow">→</span>
+        <a class="work-tile" href="product.html">
+          <span class="work-tile-cat">IoT + Product Design</span>
+          <h2 class="work-tile-title">SafeCharm</h2>
+          <p class="work-tile-desc">GPS tracking embedded in wearable jewelry &mdash; privacy-first IoT design</p>
+          <span class="work-tile-arrow">&rarr;</span>
         </a>
       </div>
     </div>
   </section>
 
-  <div class="section-divider">✦</div>
+  <div class="section-divider">&#10022;</div>
 
   <!-- MORE ABOUT ME -->
   <section style="max-width:900px;margin:0 auto;padding:3rem 0 0;">
@@ -291,19 +282,28 @@
         <div>
           <p class="about-block-label">Websites I've worked on</p>
           <div class="sites-grid">
-            <div><p class="site-item-label">SOAR Center</p><iframe src="https://soar.uci.edu/" width="100%" height="140" title="SOAR Center Website"></iframe></div>
-            <div><p class="site-item-label">NSBE @ UCI</p><iframe src="https://sites.uci.edu/nsbeatuci/" width="100%" height="140" title="NSBE at UCI Website"></iframe></div>
-            <div><p class="site-item-label">Rocket Project Liquids</p><iframe src="https://www.rocket.eng.uci.edu/liquids/" width="100%" height="140" title="Rocket Project - Liquids Website"></iframe></div>
+            <div>
+              <p class="site-item-label">SOAR Center &mdash; designing for accessibility, inclusivity &amp; outreach</p>
+              <iframe src="https://soar.uci.edu/" width="100%" height="140" title="SOAR Center Website"></iframe>
+            </div>
+            <div>
+              <p class="site-item-label">NSBE @ UCI &mdash; designing for community</p>
+              <iframe src="https://sites.uci.edu/nsbeatuci/" width="100%" height="140" title="NSBE at UCI Website"></iframe>
+            </div>
+            <div>
+              <p class="site-item-label">Rocket Project Liquids &mdash; designing for rocket enthusiasts</p>
+              <iframe src="https://www.rocket.eng.uci.edu/liquids/" width="100%" height="140" title="Rocket Project - Liquids Website"></iframe>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="section-divider" style="margin-top:3rem;">✦</div>
+  <div class="section-divider" style="margin-top:3rem;">&#10022;</div>
 
   <div class="role-strip">
-    <p>NSBE @ UCI Vice President &nbsp;·&nbsp; SOAR Center Website &amp; Video Coordinator &nbsp;·&nbsp; Basic Needs Center Marketing Assistant &nbsp;·&nbsp; Undergraduate Research @ GLS Lab &nbsp;·&nbsp; Previous UX Designer @ UCI Rocket Project Liquids &nbsp;·&nbsp; MLT Career Prep Fellow</p>
+    <p>NSBE @ UCI Vice President &nbsp;&middot;&nbsp; SOAR Center Website &amp; Video Coordinator &nbsp;&middot;&nbsp; Basic Needs Center Marketing Assistant &nbsp;&middot;&nbsp; Undergraduate Research @ GLS Lab &nbsp;&middot;&nbsp; Previous UX Designer @ UCI Rocket Project Liquids &nbsp;&middot;&nbsp; MLT Career Prep Fellow</p>
   </div>
 
   <footer>
@@ -315,26 +315,27 @@
     <p style="font-size:0.72rem;color:var(--muted)">Made by Christie Weru</p>
   </footer>
 
-  <script async src="https://www.instagram.com/embed.js"></script>
   <script>
     (function(){
-      const body = document.body;
-      const btn  = document.getElementById('themeToggle');
-      const saved = localStorage.getItem('theme');
+      var body = document.body;
+      var btn  = document.getElementById('themeToggle');
+      var saved = localStorage.getItem('theme');
       if (saved === 'dark') body.classList.add('dark');
       else if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) body.classList.add('dark');
       function sync(){ btn.textContent = body.classList.contains('dark') ? 'light mode' : 'dark mode'; }
       sync();
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', function() {
         body.classList.toggle('dark');
         localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
         sync();
       });
     })();
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*80); });
-    }, {threshold:0.06});
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e, i) {
+        if (e.isIntersecting) setTimeout(function(){ e.target.classList.add('visible'); }, i * 80);
+      });
+    }, {threshold: 0.06});
+    document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
   </script>
 </body>
 </html>

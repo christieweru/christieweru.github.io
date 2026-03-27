@@ -34,6 +34,109 @@
   <section class="section">
     <p class="section-label">Projects</p>
 
+    <!-- ══ SAFECHARM ══ -->
+    <article class="case-card reveal">
+      <div class="case-card-header">
+        <div>
+          <h2 class="case-title">SafeCharm</h2>
+          <p class="case-subtitle">IoT wearable safety jewelry — INF 148: Designing for IoT &middot; Group 53</p>
+        </div>
+        <div class="case-meta">
+          <span class="case-tag">IoT Design</span>
+          <span class="case-tag">Product Design</span>
+          <span class="case-tag">Hardware</span>
+        </div>
+      </div>
+
+      <div class="process-steps">
+        <div class="step"><div class="step-inner"><div class="step-num">1</div><span>Research</span></div><div class="step-line"></div></div>
+        <div class="step"><div class="step-inner"><div class="step-num">2</div><span>Define</span></div><div class="step-line"></div></div>
+        <div class="step"><div class="step-inner"><div class="step-num">3</div><span>Design</span></div><div class="step-line"></div></div>
+        <div class="step"><div class="step-inner"><div class="step-num">4</div><span>Prototype</span></div><div class="step-line"></div></div>
+        <div class="step"><div class="step-inner" style="flex:0"><div class="step-num">5</div><span>Present</span></div></div>
+      </div>
+
+      <div class="case-body">
+        <div>
+          <p class="case-col-label"><span class="dot"></span>The problem</p>
+          <p class="case-col-text">Existing tracking devices prioritize function over form — bulky, obvious, and socially uncomfortable to wear. Growing data privacy concerns have further eroded trust in location-based tech. Users want safety and peace of mind without feeling surveilled, stigmatized, or aesthetically compromised.</p>
+        </div>
+        <div>
+          <p class="case-col-label"><span class="dot"></span>Key design decisions</p>
+          <p class="case-col-text">SafeCharm embeds secure GPS tracking, geofencing alerts, movement detection, and jewelry-removal sensing into a fully customizable charm bracelet. The core design constraint was invisibility: every sensor had to fit inside a charm housing no larger than a typical pendant, mounted on a custom PCB (18&times;12&times;4mm). Privacy was non-negotiable — end-to-end encryption, no third-party data selling, and an optional local-only tracking mode.</p>
+        </div>
+        <div>
+          <p class="case-col-label"><span class="dot"></span>What I learned</p>
+          <p class="case-col-text">Designing hardware is a UX problem. Every component choice — from the BNO055 IMU to the magnetic reed switch clasp detector — had a direct impact on what the user would feel and trust. The most important insight: in wearable safety tech, trust is the product. Transparency about what data is collected and who controls it matters more than any feature.</p>
+        </div>
+      </div>
+
+      <div class="outcome-ribbon">
+        <div class="outcome-icon">&#10022;</div>
+        <span><strong>Outcome:</strong> Delivered a full IoT system design including custom PCB layout, circuit wiring diagram, mobile app interaction model, competitor analysis, and security framework — presented as a final project for INF 148.</span>
+      </div>
+
+      <!-- Feature grid -->
+      <div style="padding:1.5rem 2rem;border-top:1px solid var(--border);background:var(--bg2);">
+        <p style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;">Key features</p>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 0.85rem;">
+            <p style="font-size:0.72rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;">Real-time tracking</p>
+            <p style="font-size:0.7rem;color:var(--muted);line-height:1.5;">Live GPS location via u-blox MAX-M10S</p>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 0.85rem;">
+            <p style="font-size:0.72rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;">Safety zones</p>
+            <p style="font-size:0.7rem;color:var(--muted);line-height:1.5;">Geofence alerts for home, school, work</p>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 0.85rem;">
+            <p style="font-size:0.72rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;">Removal detection</p>
+            <p style="font-size:0.7rem;color:var(--muted);line-height:1.5;">Magnetic reed switch detects clasp opening</p>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 0.85rem;">
+            <p style="font-size:0.72rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;">Discreet design</p>
+            <p style="font-size:0.7rem;color:var(--muted);line-height:1.5;">Fully customizable sterling silver / stainless</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competitor comparison -->
+      <div style="padding:1.5rem 2rem;border-top:1px solid var(--border);background:var(--bg);">
+        <p style="font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;">vs. competitors</p>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;font-size:0.72rem;">
+          <div style="padding:0.6rem 1rem;background:var(--bg2);font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;font-size:0.65rem;">Feature</div>
+          <div style="padding:0.6rem 1rem;background:rgba(107,55,240,0.08);font-weight:700;color:var(--accent);text-align:center;letter-spacing:0.06em;text-transform:uppercase;font-size:0.65rem;">SafeCharm</div>
+          <div style="padding:0.6rem 1rem;background:var(--bg2);font-weight:700;color:var(--muted);text-align:center;letter-spacing:0.06em;text-transform:uppercase;font-size:0.65rem;">AirTag / Tile</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);color:var(--text);">Wearable jewelry</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);text-align:center;color:var(--accent);background:rgba(107,55,240,0.04);">&#10003;</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);text-align:center;color:var(--muted);">&#10007;</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);color:var(--text);">Discreet design</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);text-align:center;color:var(--accent);background:rgba(107,55,240,0.04);">&#10003;</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);text-align:center;color:var(--muted);">&#10007;</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);color:var(--text);">Removal detection</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);text-align:center;color:var(--accent);background:rgba(107,55,240,0.04);">&#10003;</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);text-align:center;color:var(--muted);">&#10007;</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);color:var(--text);">Fully customizable</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);text-align:center;color:var(--accent);background:rgba(107,55,240,0.04);">&#10003;</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);text-align:center;color:var(--muted);">&#10007;</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);color:var(--text);">Personal safety features</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);text-align:center;color:var(--accent);background:rgba(107,55,240,0.04);">&#10003;</div>
+          <div style="padding:0.5rem 1rem;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:0.68rem;">Limited</div>
+        </div>
+      </div>
+
+      <div class="case-footer">
+        <div class="skills-row">
+          <span class="skill-chip">IoT Design</span>
+          <span class="skill-chip">Product Design</span>
+          <span class="skill-chip">Hardware Prototyping</span>
+          <span class="skill-chip">Circuit Design</span>
+          <span class="skill-chip">UX Research</span>
+          <span class="skill-chip">Competitive Analysis</span>
+        </div>
+        <a href="https://canva.link/safecharm" target="_blank" rel="noopener" class="view-btn">View presentation &#x2192;</a>
+      </div>
+    </article>
+
     <!-- ══ NSBE @ UCI ══ -->
     <article class="case-card reveal">
       <div class="case-card-header">
