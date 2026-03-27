@@ -1,250 +1,340 @@
 <!doctype html>
 <html lang="en">
-
-<!--
-WRITTEN BY: Christie Weru 
-EMAIL: cweru@uci.edu
--->
-
 <head>
   <meta charset="utf-8">
-  <meta name="author" content="Your name here">
-  <meta name="description" content="description of your page">
-  
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Christie Weru">
+  <meta name="description" content="Christie Weru — UX Designer & Game Developer at UC Irvine">
+  <link rel="stylesheet" href="style.css">
+  <title>Christie Weru</title>
+  <style>
+    /* ── INDEX-ONLY ───────────────────────────── */
+    .hero {
+      padding: 5rem 2.5rem 3.5rem;
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 220px; gap: 3rem; align-items: center;
+    }
 
-  <title>Christie Weru's Portfolio</title>
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .hero-eyebrow::before { content:''; display:inline-block; width:24px; height:1px; background:var(--accent); }
+
+    /* Scribble title block */
+    .hero-title-wrap { position: relative; display: inline-block; margin-bottom: 1.5rem; }
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.6rem, 5.5vw, 4rem);
+      line-height: 1.05; color: var(--text); position: relative; z-index: 1;
+    }
+    .hero-title em { color: var(--accent); font-style: italic; }
+
+    .scribble {
+      position: absolute;
+      bottom: 2px; left: -6px;
+      width: calc(100% + 12px); height: 18px;
+      pointer-events: none; z-index: 0; overflow: visible;
+    }
+    .scribble path {
+      fill: none;
+      stroke: var(--warm);
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.75;
+      stroke-dasharray: 900;
+      stroke-dashoffset: 900;
+      animation: draw-line 1.5s 0.5s cubic-bezier(0.4,0,0.2,1) forwards;
+    }
+    @keyframes draw-line { to { stroke-dashoffset: 0; } }
+    @media (prefers-reduced-motion: reduce) { .scribble path { animation: none; stroke-dashoffset: 0; } }
+
+    .hero-body { font-size: 0.95rem; line-height: 1.8; color: var(--muted); margin-bottom: 2rem; max-width: 46ch; }
+
+    .hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent); color: #fff;
+      font-family: 'Space Mono', monospace; font-size: 0.78rem; letter-spacing: 0.06em;
+      padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none;
+      border: none; cursor: pointer; transition: transform 0.2s, opacity 0.2s;
+    }
+    .hero-cta:hover { transform: translateY(-2px); opacity: 0.9; }
+    .hero-cta-ghost {
+      display: inline-flex; align-items: center;
+      background: none; color: var(--accent);
+      font-family: 'Space Mono', monospace; font-size: 0.78rem; letter-spacing: 0.06em;
+      padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none;
+      border: 1px solid var(--border2); cursor: pointer; transition: all 0.2s;
+    }
+    .hero-cta-ghost:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* Photo circle */
+    .hero-photo {
+      width: 200px; height: 200px; border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--border2);
+      box-shadow: 0 0 0 10px var(--warm2);
+      flex-shrink: 0; align-self: center; justify-self: center;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      background: var(--warm2);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--muted); font-size: 0.62rem;
+      letter-spacing: 0.1em; text-align: center; text-transform: uppercase;
+    }
+
+    /* Stats */
+    .stats-wrap { max-width: 900px; margin: 0 auto; padding: 0 2.5rem 3rem; }
+    .stats-row {
+      display: flex; border: 1px solid var(--border2); border-radius: var(--radius); overflow: hidden;
+    }
+    .stat { flex: 1; padding: 1.25rem 1rem; text-align: center; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.06em; margin-top: 0.25rem; }
+
+    /* Skills */
+    .skills-section { padding: 0 2.5rem 3rem; max-width: 900px; margin: 0 auto; }
+    .skill-group { margin-bottom: 1.25rem; }
+    .skill-group-label { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+    .skill-group-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    /* Work tiles */
+    .work-wrap { padding: 0 2.5rem; max-width: 900px; margin: 0 auto 3rem; }
+    .work-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+    .work-tile {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.5rem 1.25rem; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .work-tile:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(107,55,240,0.1); }
+    .work-tile-cat { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .work-tile-title { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--text); line-height: 1.25; }
+    .work-tile-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+    .work-tile-arrow { font-size: 1rem; color: var(--accent); margin-top: auto; }
+
+    /* About extras */
+    .about-wrap { padding: 0 2.5rem 3rem; max-width: 900px; margin: 0 auto; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .about-block-label {
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1rem; padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .spotify-stack { display: flex; flex-direction: column; gap: 0.5rem; }
+    .spotify-stack iframe { border-radius: 8px !important; }
+    .sites-grid { display: flex; flex-direction: column; gap: 0.75rem; }
+    .site-item-label { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 0.25rem; }
+    .site-item iframe { border-radius: 8px; border: 1px solid var(--border); }
+
+    @media (max-width: 680px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { width: 130px; height: 130px; justify-self: start; }
+      .stats-row { flex-wrap: wrap; }
+      .stat { flex: 0 0 50%; }
+      .work-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
+  <nav>
+    <a class="nav-brand" href="index.html">Christie's Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="ux.html">UX Design</a></li>
+      <li><a href="product.html">Product Design</a></li>
+      <li><a href="game-dev.html">Game Development</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-pill" id="themeToggle">dark mode</button>
+    </div>
+  </nav>
 
-<!-- home page nav bar -->
-<nav class="navbar navbar-expand-lg bg-white">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.html">Christie's Portfolio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="ux.html">UX Design</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="product.html">Product Design</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="game-dev.html">Game Development</a>
-        </li>
-      </ul>
-      <span class="navbar-text">
-      </span>
-      <div class="ms-auto">
-  <button id="themeToggle" class="theme-toggle" type="button" aria-label="toggle dark mode">
-    dark mode
-  </button>
-</div>
+  <!-- HERO -->
+  <div class="hero reveal">
+    <div>
+      <p class="hero-eyebrow">Portfolio — 2025</p>
 
+      <div class="hero-title-wrap">
+        <h1 class="hero-title">
+          Hi, I'm<br>
+          <em>Christie Weru.</em>
+        </h1>
+        <!-- Hand-drawn scribble under the name -->
+        <svg class="scribble" viewBox="0 0 400 18" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M2 12 C 35 4, 70 16, 105 9 C 140 2, 175 15, 210 9 C 245 3, 278 14, 312 8 C 340 3, 368 13, 398 9"/>
+        </svg>
+      </div>
+
+      <p class="hero-body">Junior at UC Irvine studying Game Design & Human-Computer Interaction. I'm passionate about UX/UI design and software engineering — making technology more accessible and intuitive for everyone.</p>
+      <div class="hero-ctas">
+        <a href="ux.html" class="hero-cta">View my work →</a>
+        <a href="mailto:christieweru07@gmail.com" class="hero-cta-ghost">Say hello</a>
+      </div>
+    </div>
+
+    <!-- PHOTO — swap images/christie.jpg for your real photo path -->
+    <div class="hero-photo">
+      <img
+        src="images/christie-digi.jpg"
+        alt="Christie Weru"
+        onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';"
+      >
+      <div class="photo-placeholder" id="photoFallback" style="display:none;">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <circle cx="18" cy="12" r="7" stroke="#6b3df0" stroke-width="1.5"/>
+          <path d="M2 34c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#6b3df0" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>Add your photo:<br>images/christie.jpg</span>
+      </div>
     </div>
   </div>
-  <!-- about me section - home page -->
-</nav>
 
-<div>
-  
-  <br>
-  <br>
-  <br>
-  <h5 class="about-me" > Hi, I’m Christie Weru—a junior at UC Irvine studying Game Design and Human-Computer Interaction. I’m passionate about UX/UI design and software engineering, with a goal of making technology more accessible and intuitive for everyone. </h5>
-  
-  <!-- divider between sections -->
-  <div class="divider">────────── ✦ ──────────</div>
-  <br>
-
-  <!-- skills section - home page -->
-  <div class="typewriter"><h1 id="skills-header">Skills</h1>
-</div>
-
-</div>
-<div class="skills">
-<span class="skill">UX Design</span>
-<span class="skill">Product Design</span>
-<span class="skill">Project Management</span>
-<span class="skill">Leadership</span>
-<span class="skill">HTML</span>
-<span class="skill">CSS</span>
-<span class="skill">Word Press</span>
-<span class="skill">Figma</span>
-<span class="skill">Adobe Illustrator</span>
-<span class="skill">Game Development</span>
-<span class="skill">User Research</span>
-<span class="skill">Web Development</span>
-<span class="skill">Web Design</span>
-<span class="skill">User Experience</span>
-<span class="skill">Interaction Design</span>
-<span class="skill">Communication</span>
-<span class="skill">Prototyping</span>
-<span class="skill">Collaboration</span>
-<span class="skill">Usability Testing</span>
-<span class="skill">Problem Solving</span>
-<span class="skill">Time Management</span>
-<span class="skill">Python</span>
-<span class="skill">C#</span>
-<span class="skill">Java</span>
-<span class="skill">JavaScript</span>
-<span class="skill">Unity Engine</span>
-</div>
-
-<div>
-  <br>
-  <br>
-
-</div>
-  <!-- divider between sections -->
-<div class="divider">────────── ✦ ──────────</div>
-
-  <!-- projects at a glance - home page -->
-  <div class="typewriter"><h1 id="projects-header">My Recent Designs</h1>
-</div>
-<div class="proj">
-<div class="row-home">
-  <div class="column-home">
-    <a href="ux.html">
-<img src="images/integrationsystem-block.png" alt="Integration System Project (clickable image)" style="width:100%">
-  </a>
-</div>
-  <div class="column-home">
-    <a href="game-dev.html">
-<img src="images/convalescence-block.png" alt="Convalescence Project(clickable image)" style="width:100%">
-  </a>
-</div>
-  <div class="column-home">
-    <a href="ux.html">
-    <img src="images/kidzdocs-block.png" alt="Kidz Docs Project(clickable image)" style="width:100%">
-  </a>
-  </div>
-</div>
-</div> 
-  <!-- divider between sections -->
-
-<div class="divider">────────── ✦ ──────────</div>
-
-<!--<music hobby> -->
-
-<div class="typewriter"><h1 id="projects-header-2">More About Me</h1></div>
-    <h2>My top 3 albums (at the momment)</h2>
-    <div class="proj">
-<div class="row-home">
-  <div class="column-home">
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/4fRcYn1zNOHY5LJXuRmJHI?utm_source=generator" width="300" height="152" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>  </div>
-  <div class="column-home">
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/0U28P0QVB1QRxpqp5IHOlH?utm_source=generator" width="300" height="152"  allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>  </div>
-  <div class="column-home">
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/7bvmGyFDwpHNRRRZJ0AHvn?utm_source=generator" width="300" height="152"  allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>  </div>
-</div>
-</div> 
-
-<!--<art hobby> -->
-
-<h2>My art</h2>
-<div class="proj">
-  <div class="row-home">
-    <div class="column-home">
-      <blockquote class="instagram-media" 
-        data-instgrm-permalink="https://www.instagram.com/p/DOWWZCliabk/?utm_source=ig_embed&amp;utm_campaign=loading" 
-        data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="column-home">
-      <blockquote class="instagram-media" 
-        data-instgrm-permalink="https://www.instagram.com/p/DNTylEGyFj_/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" 
-        data-instgrm-version="14"></blockquote>
-    </div>
-
-    <div class="column-home">
-      <blockquote class="instagram-media" 
-        data-instgrm-permalink="https://www.instagram.com/p/DMQxqeih6S5/?utm_source=ig_embed&amp;utm_campaign=loading" 
-        data-instgrm-version="14"></blockquote>
+  <!-- STATS -->
+  <div class="stats-wrap reveal">
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years designing</div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label">Roles held</div></div>
+      <div class="stat"><div class="stat-num">HCI</div><div class="stat-label">Focus area</div></div>
+      <div class="stat"><div class="stat-num">UCI</div><div class="stat-label">Institution</div></div>
     </div>
   </div>
-</div>
 
+  <div class="section-divider">✦</div>
 
+  <!-- SKILLS -->
+  <section class="skills-section reveal">
+    <p class="section-label">Skills</p>
+    <div class="skill-group">
+      <p class="skill-group-label">Design</p>
+      <div class="skill-group-tags">
+        <span class="skill-chip">UX Design</span><span class="skill-chip">Product Design</span>
+        <span class="skill-chip">Figma</span><span class="skill-chip">Prototyping</span>
+        <span class="skill-chip">User Research</span><span class="skill-chip">Interaction Design</span>
+        <span class="skill-chip">Usability Testing</span><span class="skill-chip">Adobe Illustrator</span>
+        <span class="skill-chip">Procreate</span><span class="skill-chip">Web Design</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-label">Engineering</p>
+      <div class="skill-group-tags">
+        <span class="skill-chip">HTML</span><span class="skill-chip">CSS</span>
+        <span class="skill-chip">JavaScript</span><span class="skill-chip">Python</span>
+        <span class="skill-chip">Java</span><span class="skill-chip">C#</span>
+        <span class="skill-chip">TypeScript</span><span class="skill-chip">Angular</span>
+        <span class="skill-chip">Ionic</span><span class="skill-chip">Unity Engine</span>
+        <span class="skill-chip">WordPress</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-label">Leadership</p>
+      <div class="skill-group-tags">
+        <span class="skill-chip">Project Management</span><span class="skill-chip">Leadership</span>
+        <span class="skill-chip">Collaboration</span><span class="skill-chip">Communication</span>
+        <span class="skill-chip">Time Management</span><span class="skill-chip">Problem Solving</span>
+      </div>
+    </div>
+  </section>
 
+  <div class="section-divider">✦</div>
 
-<h2>Websites I've Worked On</h2>
+  <!-- RECENT WORK -->
+  <section style="max-width:900px;margin:0 auto;padding:3rem 0;">
+    <p class="section-label" style="padding:0 2.5rem;margin-bottom:2rem;">Recent designs</p>
+    <div class="work-wrap" style="padding-bottom:0">
+      <div class="work-grid reveal">
+        <a class="work-tile" href="ux.html">
+          <span class="work-tile-cat">UX Design</span>
+          <h2 class="work-tile-title">Integration System</h2>
+          <p class="work-tile-desc">Interactive onboarding for UCI Rocket Project Liquids — built in Figma</p>
+          <span class="work-tile-arrow">→</span>
+        </a>
+        <a class="work-tile" href="game-dev.html">
+          <span class="work-tile-cat">Game Development</span>
+          <h2 class="work-tile-title">Convalescence</h2>
+          <p class="work-tile-desc">2D action-RPG — lead programmer, UI systems & cutscenes in Unity</p>
+          <span class="work-tile-arrow">→</span>
+        </a>
+        <a class="work-tile" href="ux.html">
+          <span class="work-tile-cat">UX Design</span>
+          <h2 class="work-tile-title">Kidz Docs</h2>
+          <p class="work-tile-desc">Google Docs redesigned for children ≤12 — UX lead & lo-fi prototyping</p>
+          <span class="work-tile-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <div class="proj">
-<div class="row-home">
-  <div class="column-home">
-<iframe src="https://soar.uci.edu/" width="300"  height="400" style="border:none; border-radius:15px;" title="SOAR Center Website">
-</iframe>  </div>
-  <div class="column-home">
-<iframe src="https://sites.uci.edu/nsbeatuci/" width="300" height="400" style="border:none; border-radius:15px; " title="NSBE at UCI Website">
-</iframe> </div>
-  <div class="column-home">
-<iframe src="https://www.rocket.eng.uci.edu/liquids/" width="300" height="400" style="border:none; border-radius:15px;" title="Rocket Project - Liquids Website">
-</iframe> </div>
-</div>
-</div> 
-  <!-- divider between sections -->
+  <div class="section-divider">✦</div>
 
-<div class="divider">────────── ✦ ──────────</div>
-<!--<roles> -->
+  <!-- MORE ABOUT ME -->
+  <section style="max-width:900px;margin:0 auto;padding:3rem 0 0;">
+    <p class="section-label" style="padding:0 2.5rem;margin-bottom:2rem;">More about me</p>
+    <div class="about-wrap" style="padding-bottom:0;">
+      <div class="about-grid reveal">
+        <div>
+          <p class="about-block-label">My top 3 albums right now</p>
+          <div class="spotify-stack">
+            <iframe src="https://open.spotify.com/embed/album/4fRcYn1zNOHY5LJXuRmJHI?utm_source=generator" width="100%" height="80" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe src="https://open.spotify.com/embed/album/0U28P0QVB1QRxpqp5IHOlH?utm_source=generator" width="100%" height="80" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe src="https://open.spotify.com/embed/album/7bvmGyFDwpHNRRRZJ0AHvn?utm_source=generator" width="100%" height="80" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div>
+          <p class="about-block-label">Websites I've worked on</p>
+          <div class="sites-grid">
+            <div><p class="site-item-label">SOAR Center</p><iframe src="https://soar.uci.edu/" width="100%" height="140" title="SOAR Center Website"></iframe></div>
+            <div><p class="site-item-label">NSBE @ UCI</p><iframe src="https://sites.uci.edu/nsbeatuci/" width="100%" height="140" title="NSBE at UCI Website"></iframe></div>
+            <div><p class="site-item-label">Rocket Project Liquids</p><iframe src="https://www.rocket.eng.uci.edu/liquids/" width="100%" height="140" title="Rocket Project - Liquids Website"></iframe></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<p>
-  <em class="highlighted-role">
-    NSBE @ UCI Vice President | SOAR Center Website & Video Coordinator | 
-    Basic Needs Center Marketing Assistant | Undergraduate Research @ GLS Lab | 
-    Previous UX Designer @ UCI Rocket Project Liquids | MLT Career Prep Fellow
-  </em>
-</p>
+  <div class="section-divider" style="margin-top:3rem;">✦</div>
 
-<!--<footer> -->
+  <div class="role-strip">
+    <p>NSBE @ UCI Vice President &nbsp;·&nbsp; SOAR Center Website &amp; Video Coordinator &nbsp;·&nbsp; Basic Needs Center Marketing Assistant &nbsp;·&nbsp; Undergraduate Research @ GLS Lab &nbsp;·&nbsp; Previous UX Designer @ UCI Rocket Project Liquids &nbsp;·&nbsp; MLT Career Prep Fellow</p>
+  </div>
 
-<footer>
-  <p>Made By: Christie Weru</p>
-  <p><a href="mailto:christieweru07@gmail.com">christieweru07@gmail.com</a></p>
-  <p><a href="https://www.linkedin.com/in/christie-weru/">linkedIn</a></p>
-  <p><a href="  https://drive.google.com/file/d/1qJO7cgmi6-wGvjbAMI9JDYmrY_dWwb6M/view
-">Resume</a></p>
-</footer>
-<script async src="https://www.instagram.com/embed.js"></script>
-<script>
-  (function () {
-    const root = document.documentElement;
-    const toggleBtn = document.getElementById('themeToggle');
-    const saved = localStorage.getItem('theme');
+  <footer>
+    <div class="footer-links">
+      <a href="mailto:christieweru07@gmail.com">christieweru07@gmail.com</a>
+      <a href="https://www.linkedin.com/in/christie-weru/">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1qJO7cgmi6-wGvjbAMI9JDYmrY_dWwb6M/view">Resume</a>
+    </div>
+    <p style="font-size:0.72rem;color:var(--muted)">Made by Christie Weru</p>
+  </footer>
 
-    // default: if user hasn't chosen, follow system preference
-    if (saved) {
-      root.classList.toggle('theme-dark', saved === 'dark');
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      root.classList.add('theme-dark');
-    }
-
-    function setButtonText() {
-      const isDark = root.classList.contains('theme-dark');
-      toggleBtn.textContent = isDark ? 'light mode' : 'dark mode';
-    }
-
-    setButtonText();
-
-    toggleBtn.addEventListener('click', function () {
-      const isDark = root.classList.toggle('theme-dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      setButtonText();
-    });
-  })();
-</script>
-
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script>
+    (function(){
+      const body = document.body;
+      const btn  = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') body.classList.add('dark');
+      else if (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches) body.classList.add('dark');
+      function sync(){ btn.textContent = body.classList.contains('dark') ? 'light mode' : 'dark mode'; }
+      sync();
+      btn.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+        sync();
+      });
+    })();
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*80); });
+    }, {threshold:0.06});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
-
 </html>
